@@ -1,0 +1,14 @@
+SELECT EmployeeID,
+       EmployeeName,
+       Department,
+       Salary
+FROM (
+     SELECT EmployeeID,
+            EmployeeName,
+            Department,
+            Salary,
+            AVG(Salary) OVER (PARTITION BY Department) AS AVGDeptSalary
+     FROM Employee
+) AS DeptAvg
+WHERE Salary > AVGDeptSalary
+ORDER BY EmployeeID, EmployeeName, Department, Salary;
