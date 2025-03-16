@@ -1,0 +1,6 @@
+SELECT EmployeeName,
+       Salary,
+       COUNT(*) AS DuplicateCount
+FROM Employee
+GROUP BY EmployeeName, Salary
+HAVING COUNT(*) > 1;
