@@ -1,0 +1,5 @@
+SELECT Products.ProductID,
+       Products.ProductName
+FROM Products
+LEFT JOIN Sales ON Products.ProductID = Sales.ProductID
+WHERE Sales.ProductID IS NULL;
