@@ -1,0 +1,14 @@
+SELECT EmployeeID,
+       EmployeeName,
+       Department,
+       Salary
+FROM (
+    SELECT EmployeeID,
+           EmployeeName,
+           Department,
+           Salary,
+           ROW_NUMBER() OVER (PARTITION BY Department ORDER BY Salary DESC) AS rn
+    FROM Employees
+) ranked
+WHERE rn <= 3
+ORDER BY Department, rn;
