@@ -1,0 +1,8 @@
+SELECT ProductId, Category, Price 
+FROM (
+    SELECT ProductId, Category, Price,
+           AVG(Price) OVER (PARTITION BY Category) AS AVGPrice
+    FROM Products
+) AS AVGPRICE
+WHERE Price > AVGPrice
+ORDER BY ProductId, Category;
