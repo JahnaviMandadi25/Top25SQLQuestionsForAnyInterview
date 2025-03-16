@@ -1,0 +1,5 @@
+SELECT Salary,
+       COUNT(EmployeeID) AS EmployeeCount
+FROM Employee
+GROUP BY Salary
+ORDER BY EmployeeCount DESC, Salary;
