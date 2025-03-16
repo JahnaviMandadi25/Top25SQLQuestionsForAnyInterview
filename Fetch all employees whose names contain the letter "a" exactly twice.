@@ -1,0 +1,4 @@
+SELECT EmployeeID,
+       EmployeeName
+FROM Employee
+WHERE LENGTH(EmployeeName) - LENGTH(REPLACE(LOWER(EmployeeName), 'a', '')) = 2;
